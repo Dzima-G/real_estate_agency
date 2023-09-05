@@ -11,7 +11,7 @@ def correct_value_building(apps, schema_editor):
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('property', '0005_auto_20230902_1212'),
+        ('property', '0004_auto_20230902_1211'),
     ]
 
     operations = [
