@@ -95,6 +95,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 DATABASES = {
     'default': dj_database_url.parse(
         os.getenv('DATABASE', 'sqlite:///db.sqlite3')

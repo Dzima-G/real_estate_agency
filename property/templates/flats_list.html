@@ -1,3 +1,4 @@
+{% load static %}
 {% load l10n %}
 <!DOCTYPE html>
 <html lang="ru">
@@ -37,16 +38,16 @@
                   <p>город</p>
                   <div class="form-group">
                     <select name="town" class="form-control">
-                      <option {%ifequal town active_town%}selected {%endifequal%}value="">---</option>
+                      <option {% if town == active_town %}selected {% endif %}value="">---</option>
                       {% for town in towns %}
-                        <option {%ifequal town active_town%}selected {%endifequal%}value="{{town}}">{{town}}</option>
+                        <option {% if town == active_town %}selected {% endif %}value="{{town}}">{{town}}</option>
                       {% endfor %}
                     </select>
                   </div>
                   <div class="form-group ">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="new_building" value="1" {%if new_building%}checked {%endif%}>
+                        <input type="checkbox" name="new_building" value="1" {% if new_building%}checked {% endif %}>
                         только новостройки
                       </label>
                     </div>
@@ -79,10 +80,10 @@
                         <div>
                           <div class="row">
                             <div class="col-sm-7">
-                              <p><strong>Продается {{ flat.rooms_number }}-комнатная квартира</strong></p>
+                              <p><strong>Продается {{flat.rooms_number}}-комнатная квартира</strong></p>
                             </div>
                             <div class="col-sm-5">
-                              <p class="text-right"><strong class="nowrap">{{ flat.price|localize }} р.</strong></p>
+                              <p class="text-right"><strong class="nowrap">{{flat.price|localize}} р.</strong></p>
                             </div>
                           </div>
                           <div class="row">
