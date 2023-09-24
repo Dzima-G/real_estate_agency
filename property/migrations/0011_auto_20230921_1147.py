@@ -3,9 +3,9 @@
 from django.db import migrations
 import phonenumbers
 
-def convert_phonenumbers(apps, schema_editor):
 
-    Flat = apps.get_model('property', 'Flat',)
+def convert_phonenumbers(apps, schema_editor):
+    Flat = apps.get_model('property', 'Flat', )
     for flat in Flat.objects.all():
         number = phonenumbers.parse(flat.owners_phonenumber, "RU")
         flat.owner_pure_phone = None
@@ -15,8 +15,8 @@ def convert_phonenumbers(apps, schema_editor):
             )
         flat.save()
 
-class Migration(migrations.Migration):
 
+class Migration(migrations.Migration):
     dependencies = [
         ('property', '0010_flat_owner_pure_phone_alter_flat_active_and_more'),
     ]
